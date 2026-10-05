@@ -1,0 +1,33 @@
+networks:
+  factory-network:
+  
+services:
+
+  machine-service:
+    profiles:
+      - machine
+    build:
+      context: ./deployment-workspace/machine-service
+    image: machine-service:1.0
+
+    networks:
+      - factory-network
+
+    ports:
+      - "8001:8000"
+
+
+  maintenance-service:
+    profiles:
+      - maintenance
+    build:
+      context: ./deployment-workspace/maintenance-service
+    image: maintenance-service:1.0
+
+    networks:
+      - factory-network
+
+    ports:
+      - "8002:8000"
+
+
