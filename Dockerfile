@@ -15,6 +15,11 @@ RUN mkdir -p /usr/local/lib/docker/cli-plugins && \
     -o /usr/local/lib/docker/cli-plugins/docker-compose && \
     chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 
+RUN mkdir -p /usr/local/lib/docker/cli-plugins && \
+    curl -SL https://github.com/docker/buildx/releases/download/v0.29.1/buildx-v0.29.1.linux-amd64 \
+    -o /usr/local/lib/docker/cli-plugins/docker-buildx && \
+    chmod +x /usr/local/lib/docker/cli-plugins/docker-buildx
+
 WORKDIR /app
 
 COPY requirements.txt .
@@ -23,4 +28,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app
 
-CMD ["python", "app/deploy.py"]
+CMD ["python", "-u", "app/main.py"]

@@ -1,8 +1,7 @@
 import subprocess
 
 
-COMPOSE_FILE = "../compose.yml"
-
+COMPOSE_FILE = "/deployment-manager/compose.yml"
 
 def deploy_services(plan):
 

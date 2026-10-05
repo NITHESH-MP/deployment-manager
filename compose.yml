@@ -6,8 +6,10 @@ services:
   machine-service:
     profiles:
       - machine
+
     build:
-      context: ./deployment-workspace/machine-service
+      context: /deployment-manager/deployment-workspace/machine-service
+
     image: machine-service:1.0
 
     networks:
@@ -16,12 +18,13 @@ services:
     ports:
       - "8001:8000"
 
-
   maintenance-service:
     profiles:
       - maintenance
+
     build:
-      context: ./deployment-workspace/maintenance-service
+      context: /deployment-manager/deployment-workspace/maintenance-service
+
     image: maintenance-service:1.0
 
     networks:
@@ -29,5 +32,4 @@ services:
 
     ports:
       - "8002:8000"
-
 
