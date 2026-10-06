@@ -8,6 +8,7 @@ def deploy_services(plan):
     profiles = [
         item["profile"]
         for item in plan
+        if "profile" in item
     ]
 
     # Remove previous deployment

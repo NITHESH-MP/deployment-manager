@@ -13,3 +13,11 @@ FEATURES = {
         "repo": "https://github.com/NITHESH-MP/maintenance-service"
     }
 }
+
+MANDATORY_FEATURES = [
+    {
+        "name": "Monitoring",
+        "service": "monitoring-service",
+        "repo": "",
+    }
+]

@@ -33,3 +33,14 @@ services:
     ports:
       - "8002:8000"
 
+  monitoring-service:
+    build:
+      context: /deployment-manager/deployment-workspace/core-service
+
+    image: monitoing-service:1.0
+
+    networks:
+      - factory-network
+
+    ports:
+      - "8000:8000"

@@ -1,4 +1,7 @@
-from config import FEATURES
+from config import(
+    FEATURES,
+    MANDATORY_FEATURES
+)
 from git_manager import clone_repository
 
 def display_features():
@@ -45,6 +48,14 @@ def create_deployment_plan(selected_keys):
 
     plan = []
 
+    for key, feature in MANDATORY_FEATURES.items():
+
+        plan.append({
+            "feature": feature["name"],
+            "service": feature["service"],
+            "repo": feature["repo"]
+        })
+
     for key in selected_keys:
 
         feature = FEATURES[key]
@@ -55,7 +66,7 @@ def create_deployment_plan(selected_keys):
             "profile": feature["profile"],
             "repo": feature["repo"]
         })
-        
+
     return plan
 
 
@@ -84,3 +95,4 @@ def download_repositories(plan):
             item["repo"],
             item["service"]
         )
+        
